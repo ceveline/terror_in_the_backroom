@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8822670296167759091}
   - component: {fileID: -2011632857448419587}
   m_Layer: 0
-  m_Name: FirstAid_Green
+  m_Name: FirstAid_Green 1
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
