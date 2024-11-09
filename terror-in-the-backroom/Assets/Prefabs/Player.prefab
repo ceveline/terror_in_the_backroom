@@ -219,6 +219,7 @@ MonoBehaviour:
   mouseSensitivity: 2
   jumpForce: 5
   gravity: 9.8
+  inventory: {fileID: 0}
 --- !u!143 &1810607842666223051
 CharacterController:
   m_ObjectHideFlags: 0
