@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI; // Add this line
 using UnityStandardAssets.CrossPlatformInput;
 
-[RequireComponent(typeof (GUITexture))]
+[RequireComponent(typeof(Image))]
 public class ForcedReset : MonoBehaviour
 {
     private void Update()
