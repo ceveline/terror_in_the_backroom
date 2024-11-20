@@ -151,8 +151,9 @@ public class PlayerMovement : MonoBehaviour
     //remove mallet from Inventory
     InventoryManager.Instance.Remove(item);
 
-        //swing hammer
-        newMallet.transform.Rotate(0, -90, 0);
+        //swing mallet and reset back to upright position
+        //using coroutine to add a small delay, without delay it looks like the mallet does not move at all
+        StartCoroutine(SwingAndReset());
 
         //TODO: decrease skeleton health
 
@@ -160,11 +161,20 @@ public class PlayerMovement : MonoBehaviour
         //remove skeleton
         Destroy(skeleton);
 
-        //revert hammer back to original position
-       // newMallet.transform.Rotate(0, 90, 0);
-
         //set isColliding bool back to false
         isCollidingWithSkeleton = false;
+    }
+
+    private IEnumerator SwingAndReset()
+    {
+        // Swing mallet down
+        newMallet.transform.Rotate(0, -90, 0);
+
+        // Wait for 1/2 a second
+        yield return new WaitForSeconds(0.5f);
+
+        // revert mallet back to original position after slight delay
+        newMallet.transform.Rotate(0, 90, 0);
     }
 
     void OpenCloseInventory()
