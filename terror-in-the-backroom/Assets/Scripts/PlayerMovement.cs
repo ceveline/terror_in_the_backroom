@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Carry (mallet);
             }
-            if (mallet != null && isCollidingWithSkeleton)
+            if (isCollidingWithSkeleton)
             {
                 Debug.Log("colliding with skeleton");
                 Attack(mallet);
@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
     InventoryManager.Instance.Remove(item);
 
         //swing hammer
-        newMallet.transform.Rotate(0, 90, 0);
+        newMallet.transform.Rotate(0, -90, 0);
 
         //TODO: decrease skeleton health
 
@@ -160,9 +160,11 @@ public class PlayerMovement : MonoBehaviour
         //remove skeleton
         Destroy(skeleton);
 
+        //revert hammer back to original position
+       // newMallet.transform.Rotate(0, 90, 0);
 
-    //set isColliding bool back to false
-    isCollidingWithSkeleton = false;
+        //set isColliding bool back to false
+        isCollidingWithSkeleton = false;
     }
 
     void OpenCloseInventory()
