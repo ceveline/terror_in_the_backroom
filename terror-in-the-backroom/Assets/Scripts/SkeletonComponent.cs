@@ -7,6 +7,7 @@ public class SkeletonComponent : MonoBehaviour
 
     public HealthBar healthbar;
     Vector3 newObjectPosition;
+    public HealthBar playerHealthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class SkeletonComponent : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //decrease player health by 25 on collsion with skeletons 
-            healthbar.takeDamage(25);
+            playerHealthBar.takeDamage(25);
 
             //position of where the item will be relocated
             Vector3 newObjectPosition =  new Vector3(other.transform.position.x + Random.Range(-10f, 10f), 1.5f, other.transform.position.z + Random.Range(-10f, 10f));

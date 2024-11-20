@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float carryDistance = 2.0f;
     public GameObject mallet;
     GameObject newMallet;
-    GameObject skeleton;
+    SkeletonComponent skeleton;
+    GameObject skeletonInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -104,7 +105,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("trigger skeleton");
             isCollidingWithSkeleton = true;
-            skeleton = other.gameObject;
+            skeleton = other.gameObject.GetComponent<SkeletonComponent>();
+            skeletonInstance = other.gameObject;
         }
     }
 
@@ -155,11 +157,16 @@ public class PlayerMovement : MonoBehaviour
         //using coroutine to add a small delay, without delay it looks like the mallet does not move at all
         StartCoroutine(SwingAndReset());
 
-        //TODO: decrease skeleton health
+        //decrease skeleton health
+        skeleton.healthbar.takeDamage(34);
+        Debug.Log(skeleton.healthbar.health);
 
         //if skeleton health == 0
         //remove skeleton
-        Destroy(skeleton);
+        if (skeleton.healthbar.health < 0)
+        { 
+            Destroy(skeletonInstance);
+        }
 
         //set isColliding bool back to false
         isCollidingWithSkeleton = false;
