@@ -29,11 +29,11 @@ public class SkeletonComponent : MonoBehaviour
             playerHealthBar.takeDamage(25);
 
             //position of where the item will be relocated
-            Vector3 newObjectPosition =  new Vector3(other.transform.position.x + Random.Range(-10f, 10f), 1.5f, other.transform.position.z + Random.Range(-10f, 10f));
+            Vector3 newObjectPosition = new Vector3(other.transform.position.x + Random.Range(-10f, 10f), 1.5f, other.transform.position.z + Random.Range(-10f, 10f));
 
             StealAndRepositionItem(newObjectPosition);
         }
-    } 
+    }
 
     /*void OnCollisionEnter(Collision collision)
     {
@@ -41,7 +41,7 @@ public class SkeletonComponent : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //decrease player health by 25 on collsion with skeletons 
-            healthbar.takeDamage(25);
+            playerHealthBar.takeDamage(25);
 
             //position of where the item will be relocated
             Vector3 newObjectPosition = new Vector3(collision.transform.position.x + Random.Range(-10f, 10f), 1.5f, collision.transform.position.z + Random.Range(-10f, 10f));

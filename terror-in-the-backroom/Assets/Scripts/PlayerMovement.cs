@@ -122,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
             }
             if (isCollidingWithSkeleton)
             {
-                Debug.Log("colliding with skeleton");
                 Attack(mallet);
             }
         }
@@ -166,10 +165,10 @@ public class PlayerMovement : MonoBehaviour
         if (skeleton.healthbar.health < 0)
         { 
             Destroy(skeletonInstance);
+            //set isColliding bool back to false
+            isCollidingWithSkeleton = false;
         }
 
-        //set isColliding bool back to false
-        isCollidingWithSkeleton = false;
     }
 
     private IEnumerator SwingAndReset()
