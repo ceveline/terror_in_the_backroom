@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SkeletonComponent : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SkeletonComponent : MonoBehaviour
     public HealthBar healthbar;
     Vector3 newObjectPosition;
     public HealthBar playerHealthBar;
+    public TextMeshProUGUI stolenItemText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +71,9 @@ public class SkeletonComponent : MonoBehaviour
 
             //set status to Active
             newItem.SetActive(true);
+
+            //Alert player that item has been stolen
+            stolenItemText.text = itemToSteal.itemName + " has been stolen... ";
         }
     }
 
