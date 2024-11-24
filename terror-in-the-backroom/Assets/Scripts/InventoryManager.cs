@@ -49,4 +49,19 @@ public class InventoryManager : MonoBehaviour
             itemIcon.sprite = item.icon;
         }
     }
+
+    public Item inInventory(string name)
+    {
+        foreach (var item in Items)
+        {
+            if (item.itemName == name)
+        {
+            return item;
+        }
+        }
+        
+        return null;
+    }
+
+
 }

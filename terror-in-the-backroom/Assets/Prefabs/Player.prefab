@@ -219,7 +219,9 @@ MonoBehaviour:
   mouseSensitivity: 2
   jumpForce: 5
   gravity: 9.8
-  inventory: {fileID: 0}
+  inventory: {fileID: 2312533285663752117, guid: 41ba6abca95c7f34d8c576632bcfd443, type: 3}
+  carryDistance: 2
+  mallet: {fileID: 100000, guid: 99077ebc197dd054397c24d4d986573a, type: 3}
 --- !u!143 &1810607842666223051
 CharacterController:
   m_ObjectHideFlags: 0
