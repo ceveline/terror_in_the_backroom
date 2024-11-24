@@ -74,6 +74,9 @@ public class SkeletonComponent : MonoBehaviour
 
             //Alert player that item has been stolen
             stolenItemText.text = itemToSteal.itemName + " has been stolen... ";
+
+            //Reset Text after 5 seconds
+            Invoke("resetText", 5f);
         }
     }
 
@@ -91,6 +94,11 @@ public class SkeletonComponent : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void resetText()
+    {
+        stolenItemText.text = "";
     }
 
 }
