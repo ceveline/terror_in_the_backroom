@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float verticalRotation = 0f;
 
 
-    bool isCollidingWithObject = false;
+    bool isCollidingWithSkeleton = false;
     Collider colliderOfObjectToCollect;
 
     bool isRunning = false;
@@ -23,6 +23,12 @@ public class PlayerMovement : MonoBehaviour
 
    public  GameObject inventory;
    bool inventoryStatus = false;
+
+    public float carryDistance = 2.0f;
+    public GameObject mallet;
+    GameObject newMallet;
+    SkeletonComponent skeleton;
+    GameObject skeletonInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
         {
          LookAround();
         }
-       
-        //If player is colliding with object and pressing the E key
-        //CheckForObjectCollecting();
+
+        //Check if player is trying to attack a skeleton
+        CheckForMallet();
 
         //Open the inventory if the player is pressing I
         OpenCloseInventory();
@@ -115,30 +121,88 @@ public class PlayerMovement : MonoBehaviour
     /*public void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Collectible"))
+        if (other.gameObject.CompareTag("Skeleton"))
         {
-            isCollidingWithObject = true;
-            colliderOfObjectToCollect = other;
-        }
-    }
-   /* void CheckForObjectCollecting()
-    {
-        //only collect item if a player is colliding with is and pressing the E key
-        if (isCollidingWithObject && Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Player is pressing E");
-            CollectObject(colliderOfObjectToCollect); 
+            Debug.Log("trigger skeleton");
+            isCollidingWithSkeleton = true;
+            skeleton = other.gameObject.GetComponent<SkeletonComponent>();
+            skeletonInstance = other.gameObject;
         }
     }
 
-    void CollectObject(Collider other)
+    void CheckForMallet()
     {
-        //TODO: logic to add item inventory
-        other.gameObject.SetActive(false);
-        //set isColliding bool back to false
-        isCollidingWithObject = false;
+        //check if player has pressing the left mouse button and has a mallet in their inventory
+        if  (Input.GetMouseButtonDown(0))
+        {
+            Item mallet = InventoryManager.Instance.inInventory("Mallet");
+            if (mallet != null && !isCollidingWithSkeleton)
+            {
+                Carry (mallet);
+            }
+            if (isCollidingWithSkeleton)
+            {
+                Attack(mallet);
+            }
+        }
     }
-   */
+
+    void Carry (Item item)
+    { 
+        //carry mallet around 
+        // Calculate position to place mallet in front of player
+        Vector3 carryWeaponPosition = transform.position + transform.forward * carryDistance;
+
+        //rotate mallet by 90 degrees so it looks like player is holding it facing it away from her
+        Quaternion holdRotation = Quaternion.Euler(90, 90, 0);
+
+        newMallet = Instantiate(mallet, carryWeaponPosition, holdRotation);
+
+        // Set the player as the parent of the mallet so that it is attached to the player
+        newMallet.transform.SetParent(transform);
+
+        //TODO: add option to put mallet back in inventory??
+    }
+
+
+    void Attack(Item item)
+    {
+        Debug.Log("attack method called");
+
+    //remove mallet from Inventory
+    InventoryManager.Instance.Remove(item);
+
+        //swing mallet and reset back to upright position
+        //using coroutine to add a small delay, without delay it looks like the mallet does not move at all
+        StartCoroutine(SwingAndReset());
+
+        //decrease skeleton health
+        skeleton.healthbar.takeDamage(34);
+        Debug.Log(skeleton.healthbar.health);
+
+        //if skeleton health == 0
+        //remove skeleton
+        if (skeleton.healthbar.health < 0)
+        { 
+            Destroy(skeletonInstance);
+            //set isColliding bool back to false
+            isCollidingWithSkeleton = false;
+        }
+
+    }
+
+    private IEnumerator SwingAndReset()
+    {
+        // Swing mallet down
+        newMallet.transform.Rotate(0, -90, 0);
+
+        // Wait for 1/2 a second
+        yield return new WaitForSeconds(0.5f);
+
+        // revert mallet back to original position after slight delay
+        newMallet.transform.Rotate(0, 90, 0);
+    }
+
     void OpenCloseInventory()
     {
         if (Input.GetKeyDown(KeyCode.I))
