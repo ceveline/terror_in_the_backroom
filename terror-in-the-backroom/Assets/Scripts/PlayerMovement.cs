@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController playerController;
     private Vector3 direction;
     private float verticalVelocity;
+    private float verticalRotation = 0f;
+
 
     bool isCollidingWithObject = false;
     Collider colliderOfObjectToCollect;
@@ -76,21 +78,39 @@ public class PlayerMovement : MonoBehaviour
         playerController.Move(direction * Time.deltaTime);
     }
 
+    //void LookAround()
+    //{
+    //    float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+    //    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+    //    //rotate player around the y axis
+    //    transform.Rotate(0,mouseX,0);
+
+    //    //rotate camera around the x axis
+    //    Vector3 cameraRotation = playerCamera.transform.localEulerAngles;
+    //    cameraRotation.x -= mouseY;
+    //    cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 45f);  
+    //    playerCamera.transform.localEulerAngles = cameraRotation;
+
+    //}
+
     void LookAround()
     {
+        // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-        
-        //rotate player around the y axis
-        transform.Rotate(0,mouseX,0);
 
-        //rotate camera around the x axis
-        Vector3 cameraRotation = playerCamera.transform.localEulerAngles;
-        cameraRotation.x -= mouseY;
-        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 45f);  
-        playerCamera.transform.localEulerAngles = cameraRotation;
+        // Rotate the player around the Y-axis
+        transform.Rotate(0, mouseX, 0);
 
+        // Keep track of the camera's vertical rotation
+        verticalRotation -= mouseY; // Decrease vertical rotation based on mouse input
+        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 45f); // Clamp vertical rotation
+
+        // Apply the vertical rotation to the camera
+        playerCamera.transform.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
     }
+
 
     /*public void OnTriggerEnter(Collider other)
     {
