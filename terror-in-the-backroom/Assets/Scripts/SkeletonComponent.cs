@@ -60,6 +60,12 @@ public class SkeletonComponent : MonoBehaviour
             //get first item in inventory
             Item itemToSteal = InventoryManager.Instance.Items[0];
 
+            //check if the first item is not a mallet if it is then steal another item
+            if(itemToSteal.itemName == "Mallet" && InventoryManager.Instance.Items[1] != null)
+            {
+                itemToSteal = InventoryManager.Instance.Items[1];
+            }
+
             //Remove that item from inventory
             InventoryManager.Instance.Remove(itemToSteal);
 
