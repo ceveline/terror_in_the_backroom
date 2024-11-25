@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 carryWeaponPosition = transform.position + transform.forward * carryDistance;
 
         //rotate mallet by 90 degrees so it looks like player is holding it facing it away from her
-        Quaternion holdRotation = Quaternion.Euler(90, 90, 0);
+        Quaternion holdRotation = Quaternion.Euler(90, 0, 90);
 
         newMallet = Instantiate(mallet, carryWeaponPosition, holdRotation);
 
