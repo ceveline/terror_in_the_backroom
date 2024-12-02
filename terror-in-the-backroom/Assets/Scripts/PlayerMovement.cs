@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
         //Open the inventory if the player is pressing I
         OpenCloseInventory();
 
+
+
     }
 
     void HandlePlayerMovement()

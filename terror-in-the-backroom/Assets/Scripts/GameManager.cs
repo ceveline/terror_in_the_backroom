@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartScene() { 
 
-        SceneManager.LoadScene(currentLevel);
+        //SceneManager.LoadScene(currentLevel);
         // add to player controller script, when the player dies, set GameManager.currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 }

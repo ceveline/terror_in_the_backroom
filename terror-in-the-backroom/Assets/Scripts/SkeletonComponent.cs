@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SkeletonComponent : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SkeletonComponent : MonoBehaviour
     Vector3 newObjectPosition;
     public HealthBar playerHealthBar;
     public TextMeshProUGUI stolenItemText;
+
 
 
     // Start is called before the first frame update
@@ -35,6 +37,7 @@ public class SkeletonComponent : MonoBehaviour
             Vector3 newObjectPosition = new Vector3(other.transform.position.x + Random.Range(-10f, 10f), 1.5f, other.transform.position.z + Random.Range(-10f, 10f));
 
             StealAndRepositionItem(newObjectPosition);
+
         }
     }
 

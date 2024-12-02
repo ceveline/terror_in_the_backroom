@@ -25,4 +25,11 @@ public class MenuController : MonoBehaviour
     {
 
     }
+
+    public void RestartScene()
+    {
+
+        SceneManager.LoadScene(GameManager.currentLevel);
+        // add to player controller script, when the player dies, set GameManager.currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
 }
