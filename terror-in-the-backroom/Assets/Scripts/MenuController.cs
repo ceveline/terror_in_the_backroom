@@ -11,9 +11,9 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-    public void RestartGame()
+    public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GameOver()
