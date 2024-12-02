@@ -25519,7 +25519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2307528988394588978, guid: ca15245f204fc714d9f9acdddb251be3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.527
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2307528988394588978, guid: ca15245f204fc714d9f9acdddb251be3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25559,11 +25559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5808731517610103533, guid: ca15245f204fc714d9f9acdddb251be3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.38
+      value: 1.054
       objectReference: {fileID: 0}
     - target: {fileID: 5808731517610103533, guid: ca15245f204fc714d9f9acdddb251be3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.14
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5808731517610103533, guid: ca15245f204fc714d9f9acdddb251be3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29188,6 +29188,10 @@ PrefabInstance:
     - target: {fileID: 6899769094566875523, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_Name
       value: FleashWeaver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899769094566875523, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

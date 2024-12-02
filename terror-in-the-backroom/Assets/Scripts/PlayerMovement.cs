@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (isCollidingWithSkeleton)
             {
-                Attack(mallet);
+                Attack(newMallet);
             }
         }
     }
@@ -165,12 +165,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void Attack(Item item)
+    void Attack(GameObject item)
     {
         Debug.Log("attack method called");
 
     //remove mallet from Inventory
-    InventoryManager.Instance.Remove(item);
+    //InventoryManager.Instance.Remove(item);
 
         //swing mallet and reset back to upright position
         //using coroutine to add a small delay, without delay it looks like the mallet does not move at all
@@ -187,6 +187,9 @@ public class PlayerMovement : MonoBehaviour
             Destroy(skeletonInstance);
             //set isColliding bool back to false
             isCollidingWithSkeleton = false;
+
+            //stop carrying mallet
+            item.SetActive(false);
         }
 
     }
