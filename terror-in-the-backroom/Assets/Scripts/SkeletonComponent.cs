@@ -44,8 +44,8 @@ public class SkeletonComponent : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //delta time
-            playerHealthBar.takeDamage(25);
+            //delta time to do it every 3 seconds
+            playerHealthBar.takeDamage(25 * Time.deltaTime);
         }
     }
 
