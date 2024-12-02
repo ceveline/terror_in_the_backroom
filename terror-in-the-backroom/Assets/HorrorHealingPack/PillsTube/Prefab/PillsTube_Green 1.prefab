@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2203136743970997468}
   - component: {fileID: -4857526646247768051}
   m_Layer: 0
-  m_Name: PillsTube_Green
+  m_Name: PillsTube_Green 1
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

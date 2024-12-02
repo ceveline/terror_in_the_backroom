@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     SkeletonComponent skeleton;
     GameObject skeletonInstance;
 
+    bool isCarrying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -132,6 +134,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Skeleton"))
+        {
+            isCollidingWithSkeleton = false;
+        }
+    }
+
     void CheckForMallet()
     {
         //check if player has pressing the left mouse button and has a mallet in their inventory
@@ -140,11 +150,18 @@ public class PlayerMovement : MonoBehaviour
             Item mallet = InventoryManager.Instance.inInventory("Mallet");
             if (mallet != null && !isCollidingWithSkeleton)
             {
-                Carry (mallet);
+                if (!isCarrying)
+                {
+                    Carry (mallet);
+                }
+                else
+                {
+                    Drop(newMallet);
+                }
             }
-            if (isCollidingWithSkeleton)
+            if (isCollidingWithSkeleton && isCarrying)
             {
-                Attack(mallet);
+                Attack(newMallet);
             }
         }
     }
@@ -163,16 +180,25 @@ public class PlayerMovement : MonoBehaviour
         // Set the player as the parent of the mallet so that it is attached to the player
         newMallet.transform.SetParent(transform);
 
-        //TODO: add option to put mallet back in inventory??
+        isCarrying = true;
+    }
+
+    void Drop(GameObject item)
+    {
+        //stop carrying item around
+        Destroy(item);
+
+        //set isCarrying back to false
+        isCarrying = false;
     }
 
 
-    void Attack(Item item)
+    void Attack(GameObject item)
     {
         Debug.Log("attack method called");
 
     //remove mallet from Inventory
-    InventoryManager.Instance.Remove(item);
+    //InventoryManager.Instance.Remove(item);
 
         //swing mallet and reset back to upright position
         //using coroutine to add a small delay, without delay it looks like the mallet does not move at all
@@ -189,6 +215,9 @@ public class PlayerMovement : MonoBehaviour
             Destroy(skeletonInstance);
             //set isColliding bool back to false
             isCollidingWithSkeleton = false;
+
+            //stop carrying mallet
+            item.SetActive(false);
         }
 
     }
