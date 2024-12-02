@@ -132,6 +132,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Skeleton"))
+        {
+            isCollidingWithSkeleton = false;
+        }
+    }
+
     void CheckForMallet()
     {
         //check if player has pressing the left mouse button and has a mallet in their inventory
@@ -148,9 +156,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Drop(newMallet);
                 }
-               
             }
-            if (isCollidingWithSkeleton)
+            if (isCollidingWithSkeleton && isCarrying)
             {
                 Attack(newMallet);
             }
