@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     SkeletonComponent skeleton;
     GameObject skeletonInstance;
 
+    bool isCarrying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -138,7 +140,15 @@ public class PlayerMovement : MonoBehaviour
             Item mallet = InventoryManager.Instance.inInventory("Mallet");
             if (mallet != null && !isCollidingWithSkeleton)
             {
-                Carry (mallet);
+                if (!isCarrying)
+                {
+                    Carry (mallet);
+                }
+                else
+                {
+                    Drop(newMallet);
+                }
+               
             }
             if (isCollidingWithSkeleton)
             {
@@ -161,7 +171,16 @@ public class PlayerMovement : MonoBehaviour
         // Set the player as the parent of the mallet so that it is attached to the player
         newMallet.transform.SetParent(transform);
 
-        //TODO: add option to put mallet back in inventory??
+        isCarrying = true;
+    }
+
+    void Drop(GameObject item)
+    {
+        //stop carrying item around
+        Destroy(item);
+
+        //set isCarrying back to false
+        isCarrying = false;
     }
 
 
