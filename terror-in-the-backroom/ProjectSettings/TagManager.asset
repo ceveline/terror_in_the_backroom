@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectible
+  - bullet
+  - Reach
   - Inventory
   - Skeleton
   layers:
@@ -14,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - PP
   - 
   - 
   - 
