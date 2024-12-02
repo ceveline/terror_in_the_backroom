@@ -40,23 +40,31 @@ public class SkeletonComponent : MonoBehaviour
 
         }
     }
-
-    /*void OnCollisionEnter(Collision collision)
+    public void OnTriggerStay(Collider other)
     {
-        Debug.Log("colliding");
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            //decrease player health by 25 on collsion with skeletons 
+            //delta time
             playerHealthBar.takeDamage(25);
-
-            //position of where the item will be relocated
-            Vector3 newObjectPosition = new Vector3(collision.transform.position.x + Random.Range(-10f, 10f), 1.5f, collision.transform.position.z + Random.Range(-10f, 10f));
-
-            StealAndRepositionItem(newObjectPosition);
         }
-    }*/
+    }
 
-    public void StealAndRepositionItem(Vector3 newPosition)
+        /*void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log("colliding");
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                //decrease player health by 25 on collsion with skeletons 
+                playerHealthBar.takeDamage(25);
+
+                //position of where the item will be relocated
+                Vector3 newObjectPosition = new Vector3(collision.transform.position.x + Random.Range(-10f, 10f), 1.5f, collision.transform.position.z + Random.Range(-10f, 10f));
+
+                StealAndRepositionItem(newObjectPosition);
+            }
+        }*/
+
+        public void StealAndRepositionItem(Vector3 newPosition)
     {
         if (InventoryManager.Instance.Items.Count > 0)
         {
