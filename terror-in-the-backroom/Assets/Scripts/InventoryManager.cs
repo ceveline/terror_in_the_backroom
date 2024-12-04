@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance; 
     public List<Item> Items = new List<Item>();
+    public List<GameObject> itemGameObjects = new List<GameObject>();
 
     public Transform ItemContent;
     public GameObject InventoryItem;
@@ -37,6 +38,7 @@ public class InventoryManager : MonoBehaviour
     public void Add(Item item)
     {
         Items.Add(item);
+        itemGameObjects.Add(item.prefab);
 
         //Update the number of items that have been collected
         GameManager.Instance.UpdateItemsCollected();
@@ -72,6 +74,24 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
         }
+    }
+
+    public List<Item> GetItems()
+    {
+        return Items;
+    }
+
+    public List<Transform> getItemTransforms()
+    {
+
+        List<Transform> itemTransforms = new List<Transform>();
+        foreach (Transform item in ItemContent)
+        {
+            itemTransforms.Add(item);
+        }
+
+        return itemTransforms;
+
     }
 
     public Item inInventory(string name)

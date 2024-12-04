@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   itemName: Blue Pills
+  prefab: {fileID: 9018083828553603102, guid: 4a44398ffa8aed24993796f402c7fe07, type: 3}
   icon: {fileID: 21300000, guid: 875eadefa33e9c14fba6b5c23a5e280b, type: 3}

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   itemName: First Aid
+  prefab: {fileID: 8430575460017593913, guid: d803ba92515e95c4597f0e3042e1f010, type: 3}
   icon: {fileID: 21300000, guid: e1b65bccdbe8bad48b6e92311406589f, type: 3}

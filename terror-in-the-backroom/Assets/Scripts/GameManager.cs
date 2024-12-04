@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int itemsCollected = 0;
+    public int itemsDroppedOff = 0;
 
     string sceneName = "";
     int itemsToCollect = 0;
@@ -38,6 +39,13 @@ public class GameManager : MonoBehaviour
     {
         itemsCollected += 1;
         Debug.Log("Items Collected: " + itemsCollected);
+
+    }
+
+    public void UpdateItemsDroppedOff()
+    {
+        itemsDroppedOff += 1;
+        Debug.Log("Items Dropped Off: " + itemsDroppedOff);
 
     }
 
