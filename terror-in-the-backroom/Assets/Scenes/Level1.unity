@@ -199,6 +199,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3392321390794453025, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
+      propertyPath: stolenItemText
+      value: 
+      objectReference: {fileID: 221577035}
+    - target: {fileID: 3392321390794453025, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
+      propertyPath: playerHealthBar
+      value: 
+      objectReference: {fileID: 1231945691}
     - target: {fileID: 3751534987644881567, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
       propertyPath: m_Name
       value: Skeleton (1)

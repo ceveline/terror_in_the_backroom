@@ -65,13 +65,13 @@ public class GameManager : MonoBehaviour
         switch (sceneName)
         {
             case "Level1":
-                return 10;
+                return 15;
             case "Level2":
-                return 14;
+                return 20;
             case "Level3":
-                return 18;
+                return 15;
             default:
-                return 10;
+                return 15;
         }
     }
     void checkLevelPassingCondition()
