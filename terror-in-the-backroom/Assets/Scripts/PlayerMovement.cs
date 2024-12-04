@@ -86,21 +86,6 @@ public class PlayerMovement : MonoBehaviour
         playerController.Move(direction * Time.deltaTime);
     }
 
-    //void LookAround()
-    //{
-    //    float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-    //    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-    //    //rotate player around the y axis
-    //    transform.Rotate(0,mouseX,0);
-
-    //    //rotate camera around the x axis
-    //    Vector3 cameraRotation = playerCamera.transform.localEulerAngles;
-    //    cameraRotation.x -= mouseY;
-    //    cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 45f);  
-    //    playerCamera.transform.localEulerAngles = cameraRotation;
-
-    //}
 
     void LookAround()
     {
