@@ -8,7 +8,6 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance; 
     public List<Item> Items = new List<Item>();
-    public List<GameObject> itemGameObjects = new List<GameObject>();
 
     public Transform ItemContent;
     public GameObject InventoryItem;
@@ -38,7 +37,6 @@ public class InventoryManager : MonoBehaviour
     public void Add(Item item)
     {
         Items.Add(item);
-        itemGameObjects.Add(item.prefab);
 
         //Update the number of items that have been collected
         GameManager.Instance.UpdateItemsCollected();
@@ -50,6 +48,12 @@ public class InventoryManager : MonoBehaviour
     public void Remove(Item item)
     {
         Items.Remove(item);
+
+        //Update the number of items that have been collected
+        GameManager.Instance.SkeletonStoleItem();
+
+        //update the itemsCollected text
+        itemsCollectedText.text = "Items: " + GameManager.Instance.itemsCollected.ToString() + " / " + itemsToCollect.ToString();
     }
 
     public void ListItems()

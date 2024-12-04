@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SkeletonStoleItem()
+    {
+        itemsCollected -= 1;
+    }
+
     public void UpdateItemsDroppedOff()
     {
         itemsDroppedOff += 1;
