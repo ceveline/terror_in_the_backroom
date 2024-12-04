@@ -48,11 +48,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    string getLevel()
+   public string getLevel()
     {
         return SceneManager.GetActiveScene().name;
     }
-    int setLevelItems()
+    public int setLevelItems()
     {
         switch (sceneName)
         {
