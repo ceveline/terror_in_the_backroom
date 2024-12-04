@@ -111,6 +111,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.1598387
       objectReference: {fileID: 0}
@@ -195,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1605773648682023430}
   playerHealthBar: {fileID: 0}
+  stolenItemText: {fileID: 0}
 --- !u!136 &7779212376820689684
 CapsuleCollider:
   m_ObjectHideFlags: 0
