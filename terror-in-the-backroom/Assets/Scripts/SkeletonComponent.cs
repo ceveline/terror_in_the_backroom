@@ -40,14 +40,16 @@ public class SkeletonComponent : MonoBehaviour
 
         }
     }
-    public void OnTriggerStay(Collider other)
+   /* public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             //delta time to do it every 3 seconds
-            playerHealthBar.takeDamage(25 * Time.deltaTime);
+            playerHealthBar.takeDamage(25);
+            //playerHealthBar.takeDamage(25 * Time.deltaTime);
+
         }
-    }
+    }*/
 
         /*void OnCollisionEnter(Collision collision)
         {
