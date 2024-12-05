@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Player_Health : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
+
 
     public Slider healthBar;
     // Start is called before the first frame update
@@ -31,8 +32,7 @@ public class Player_Health : MonoBehaviour
 
     void Die()
     {
-        // Add death logic here
-        // transition to game over menu
+        
     }
 
 }
