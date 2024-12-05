@@ -843,19 +843,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 391188486}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.65
+      value: 22.39791
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.024999619
+      value: -0.670794
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.57
+      value: -53.757774
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -863,7 +863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
       propertyPath: m_LocalRotation.y
@@ -9486,6 +9486,7 @@ Transform:
   - {fileID: 1730343321}
   - {fileID: 583369822}
   - {fileID: 1594148880}
+  - {fileID: 1175675264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395102996
@@ -28812,6 +28813,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 420392, guid: ab4ced4914b68784d8bf02aba7918f90, type: 3}
   m_PrefabInstance: {fileID: 1174020664}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1175675264 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65ad8bff43f0944459e6c2e38ec15bd2, type: 3}
+  m_PrefabInstance: {fileID: 15255506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1185510805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42044,6 +42050,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8961da416005c14498993bf986d87a31, type: 2}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1476953215551975113, guid: 8961da416005c14498993bf986d87a31, type: 2}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046696369527730121, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 1785653001635426003, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
       propertyPath: m_Name
       value: HealthBar Canvas
@@ -52084,7 +52126,6 @@ SceneRoots:
   - {fileID: 1209009440}
   - {fileID: 2097435294}
   - {fileID: 391188486}
-  - {fileID: 15255506}
   - {fileID: 1703729744}
   - {fileID: 1540291470}
   - {fileID: 1708657345}
