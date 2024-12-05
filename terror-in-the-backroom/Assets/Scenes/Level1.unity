@@ -28319,7 +28319,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items: []
-  itemGameObjects: []
   ItemContent: {fileID: 858723272}
   InventoryItem: {fileID: 7388691670977889235, guid: 820bb6a7495efd646ab94a2f7e92122b, type: 3}
   itemsCollectedText: {fileID: 323697070}
@@ -35745,6 +35744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1472514985}
   - component: {fileID: 1472514984}
+  - component: {fileID: 1472514986}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -35764,8 +35764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9f667c9f50bd34eab92a209e1d08be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsCollected: 0
-  itemsDroppedOff: 0
 --- !u!4 &1472514985
 Transform:
   m_ObjectHideFlags: 0
@@ -35781,6 +35779,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472514986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472514983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a282a0b8aa9a2cc4dbae65fc06376479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsCollected: 0
+  itemsDroppedOff: 0
 --- !u!1 &1483498791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: ec505f73967a98c48a090df01f10c44b, type: 3}
