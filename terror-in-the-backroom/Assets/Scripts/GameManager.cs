@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+
     public void LoadNextScene()
     {
         //modify it to load next scene when all items have been dropped off
