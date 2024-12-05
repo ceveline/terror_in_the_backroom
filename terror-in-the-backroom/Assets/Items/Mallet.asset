@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 10
   itemName: Mallet
+  prefab: {fileID: 8766302683869588609, guid: d0d90b02dd62ff541a119a08ecd3af24, type: 3}
   icon: {fileID: 21300000, guid: 9371c26624c254342a7384fb096720b2, type: 3}

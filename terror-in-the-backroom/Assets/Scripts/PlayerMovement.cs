@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject skeletonInstance;
 
     bool isCarrying = false;
+    bool atDropoffLocation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         //Open the inventory if the player is pressing I
         OpenCloseInventory();
 
+        //Drop Off Items if player is pressing V
+        DropOffItems();
 
 
     }
@@ -88,21 +91,6 @@ public class PlayerMovement : MonoBehaviour
         playerController.Move(direction * Time.deltaTime);
     }
 
-    //void LookAround()
-    //{
-    //    float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-    //    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-    //    //rotate player around the y axis
-    //    transform.Rotate(0,mouseX,0);
-
-    //    //rotate camera around the x axis
-    //    Vector3 cameraRotation = playerCamera.transform.localEulerAngles;
-    //    cameraRotation.x -= mouseY;
-    //    cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90f, 45f);  
-    //    playerCamera.transform.localEulerAngles = cameraRotation;
-
-    //}
 
     void LookAround()
     {
@@ -132,6 +120,11 @@ public class PlayerMovement : MonoBehaviour
             skeleton = other.gameObject.GetComponent<SkeletonComponent>();
             skeletonInstance = other.gameObject;
         }
+        if (other.gameObject.CompareTag("Dropoff"))
+        {
+            Debug.Log("entered dropoff location");
+            atDropoffLocation = true;
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -139,6 +132,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Skeleton"))
         {
             isCollidingWithSkeleton = false;
+        }
+        if (other.gameObject.CompareTag("Dropoff"))
+        {
+            atDropoffLocation = false;
         }
     }
 
@@ -238,13 +235,58 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            //set the inventory status to the opposiet of what it currently is
+            //set the inventory status to the opposite of what it currently is
             //allows the player to open and close the inventory by pressing the I key
             inventory.SetActive(!inventoryStatus);
             inventoryStatus = !inventoryStatus;
 
             //update inventory with items that have been collected
             InventoryManager.Instance.ListItems();
+        }
+    }
+
+    void DropOffItems()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log("V being pressed");
+
+            List<Item> items = InventoryManager.Instance.GetItems();
+            float spaceOutDistance = 5.0f;
+
+            //create a copy of itemList to safely iterate through
+            var itemsCopy = new List<Item>(items);
+
+            foreach (Item item in itemsCopy)
+            {
+                //save the amount of items being dropped off
+                GameManager.Instance.UpdateItemsDroppedOff();
+
+                //update items list
+                InventoryManager.Instance.ListItems();
+
+                //get the transforms of the items so that we can instantiate the game objects
+                //List<Transform> itemTransforms = InventoryManager.Instance.getItemTransforms();
+               // Debug.Log("tranforms : "  + itemTransforms.Count);
+
+               
+
+                //Instantiate GameObjects
+                /*foreach(Transform itemTransform in itemTransforms)
+                {*/
+                    //Debug.Log("tranform loop entered");
+                    Vector3 itemLocation = transform.position + transform.forward * spaceOutDistance;
+                    itemLocation. y = 0.5f;
+
+                    Instantiate(item.prefab, itemLocation, Quaternion.identity);
+                    spaceOutDistance += 2;
+                    Debug.Log("item instantiated");
+                //}
+                
+                //remove these items from the inventory
+                InventoryManager.Instance.Remove(item);
+
+            }
         }
     }
 

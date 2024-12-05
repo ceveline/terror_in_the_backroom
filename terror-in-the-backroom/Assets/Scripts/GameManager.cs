@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public int itemsCollected = 0;
+    public int itemsDroppedOff = 0;
+
+    string sceneName = "";
+    int itemsToCollect = 0;
+    // Singleton pattern
     public static int currentLevel = 0;
 
 
@@ -20,6 +27,67 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        sceneName = getLevel();
+        itemsToCollect = setLevelItems();
+    }
+    void Update()
+    {
+        checkLevelPassingCondition();
+    }
+    public void UpdateItemsCollected()
+    {
+        itemsCollected += 1;
+        Debug.Log("Items Collected: " + itemsCollected);
+
+    }
+
+    public void SkeletonStoleItem()
+    {
+        itemsCollected -= 1;
+    }
+
+    public void UpdateItemsDroppedOff()
+    {
+        itemsDroppedOff += 1;
+        Debug.Log("Items Dropped Off: " + itemsDroppedOff);
+
+    }
+
+    public void ResetItems()
+    {
+        itemsCollected = 0;
+        Debug.Log("Items Collected:: " + itemsCollected);
+
+    }
+
+   public string getLevel()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+    public int setLevelItems()
+    {
+        switch (sceneName)
+        {
+            case "Level1":
+                return 15;
+            case "Level2":
+                return 20;
+            case "Level3":
+                return 15;
+            default:
+                return 15;
+        }
+    }
+    void checkLevelPassingCondition()
+    {
+        if (itemsCollected == itemsToCollect && itemsCollected != 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

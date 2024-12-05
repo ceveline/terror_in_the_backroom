@@ -31,7 +31,7 @@ public class SkeletonComponent : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //decrease player health by 25 on collsion with skeletons 
-            playerHealthBar.takeDamage(25);
+            playerHealthBar.takeDamage(5);
 
             //position of where the item will be relocated
             Vector3 newObjectPosition = new Vector3(other.transform.position.x + Random.Range(-10f, 10f), 1.5f, other.transform.position.z + Random.Range(-10f, 10f));
@@ -40,14 +40,16 @@ public class SkeletonComponent : MonoBehaviour
 
         }
     }
-    public void OnTriggerStay(Collider other)
+   /* public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             //delta time to do it every 3 seconds
-            playerHealthBar.takeDamage(25 * Time.deltaTime);
+            playerHealthBar.takeDamage(25);
+            //playerHealthBar.takeDamage(25 * Time.deltaTime);
+
         }
-    }
+    }*/
 
         /*void OnCollisionEnter(Collision collision)
         {
@@ -115,6 +117,7 @@ public class SkeletonComponent : MonoBehaviour
 
     public void resetText()
     {
+        Debug.Log("reset Text called");
         stolenItemText.text = "";
     }
 
