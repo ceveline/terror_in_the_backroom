@@ -7,6 +7,7 @@ public class FleshAIController : MonoBehaviour
 {
 
     public Transform player;
+    public GameObject playerObj;
     public Transform floor;
     public Transform teleportLocation;
     public float viewDistance = 15f; 
@@ -69,21 +70,20 @@ public class FleshAIController : MonoBehaviour
                 isChasing = false;
             }
         }
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+
+        public void OnTriggerEnter(Collider other)
         {
-            TeleportPlayer();
+            Debug.Log("colliding");
+            if (other.gameObject.CompareTag("Player"))
+            {
+               playerObj.SetActive(false);
+                player.position=teleportLocation.position;
+                playerObj.SetActive(true);
+            }
         }
-    }
 
+       
 
-
-    void TeleportPlayer()
-        {
-            player.position = teleportLocation.position;
-            isChasing = false; 
-        }
 
         bool IsPlayerInSight()
         {
