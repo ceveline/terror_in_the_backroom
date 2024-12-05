@@ -23,7 +23,7 @@ public class SkeletonAIController : MonoBehaviour
     {
           if (!isWaiting && !skeleton.pathPending && skeleton.remainingDistance < 0.5f)
         {
-            StartCoroutine(DelayMoveToNextPatrolPoint());
+            StartCoroutine(DelayedMoveToNextPatrolPoint());
         }
     }
 
