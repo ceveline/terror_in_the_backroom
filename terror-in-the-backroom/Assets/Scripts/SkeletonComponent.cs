@@ -104,6 +104,7 @@ public class SkeletonComponent : MonoBehaviour
 
     public void resetText()
     {
+        Debug.Log("reset Text called");
         stolenItemText.text = "";
     }
 

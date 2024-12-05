@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class InventoryManager : MonoBehaviour   
@@ -10,20 +11,49 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
-    
+
+    public TextMeshProUGUI itemsCollectedText;
+
+    string sceneName = "";
+    int itemsToCollect = 0;
+
+    void Start()
+    {
+        sceneName = GameManager.Instance.getLevel();
+        itemsToCollect = GameManager.Instance.setLevelItems();
+    }
+
     private void Awake()
     {
         Instance = this;
     }
 
+    public void Update()
+    {
+        //update the items text
+        itemsCollectedText.text = "Items: " + GameManager.Instance.itemsCollected.ToString() + " / " + itemsToCollect.ToString();
+    }
+
     public void Add(Item item)
     {
         Items.Add(item);
+
+        //Update the number of items that have been collected
+        GameManager.Instance.UpdateItemsCollected();
+
+        //update the itemsCollected text
+        itemsCollectedText.text = "Items: " + GameManager.Instance.itemsCollected.ToString() + " / " + itemsToCollect.ToString();
     }
 
     public void Remove(Item item)
     {
         Items.Remove(item);
+
+        //Update the number of items that have been collected
+        GameManager.Instance.SkeletonStoleItem();
+
+        //update the itemsCollected text
+        itemsCollectedText.text = "Items: " + GameManager.Instance.itemsCollected.ToString() + " / " + itemsToCollect.ToString();
     }
 
     public void ListItems()
@@ -48,6 +78,24 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
         }
+    }
+
+    public List<Item> GetItems()
+    {
+        return Items;
+    }
+
+    public List<Transform> getItemTransforms()
+    {
+
+        List<Transform> itemTransforms = new List<Transform>();
+        foreach (Transform item in ItemContent)
+        {
+            itemTransforms.Add(item);
+        }
+
+        return itemTransforms;
+
     }
 
     public Item inInventory(string name)

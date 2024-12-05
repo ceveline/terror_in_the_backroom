@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6651906462217687317}
   - component: {fileID: 6893570478236558952}
   m_Layer: 0
-  m_Name: Syringe_Metal
+  m_Name: Syringe_Metal 1
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +93,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9f283fc816731fc479c17fcc04dae07e, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f283fc816731fc479c17fcc04dae07e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f283fc816731fc479c17fcc04dae07e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f283fc816731fc479c17fcc04dae07e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f283fc816731fc479c17fcc04dae07e, type: 3}
       propertyPath: m_LocalPosition.x

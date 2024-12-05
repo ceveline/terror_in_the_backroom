@@ -9,6 +9,7 @@ TagManager:
   - Reach
   - Inventory
   - Skeleton
+  - Dropoff
   layers:
   - Default
   - TransparentFX

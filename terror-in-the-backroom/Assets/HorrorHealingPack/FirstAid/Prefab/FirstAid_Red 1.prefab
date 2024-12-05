@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2112858233192133726}
   - component: {fileID: -9166693273072628345}
   m_Layer: 0
-  m_Name: FirstAid_Red
+  m_Name: FirstAid_Red 1
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +93,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 32a9149c75e94874388fbc79977bb452, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32a9149c75e94874388fbc79977bb452, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32a9149c75e94874388fbc79977bb452, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32a9149c75e94874388fbc79977bb452, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32a9149c75e94874388fbc79977bb452, type: 3}
       propertyPath: m_LocalPosition.x
