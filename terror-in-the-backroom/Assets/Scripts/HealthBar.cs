@@ -36,7 +36,7 @@ public class HealthBar : MonoBehaviour
     {
         health -= damage;
 
-        if (health < 0)
+        if (gameObject.tag == "Player" && health < 0)
         {
             Die();
         }
