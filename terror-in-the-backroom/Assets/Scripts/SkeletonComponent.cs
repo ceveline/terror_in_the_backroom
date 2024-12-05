@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SkeletonComponent : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SkeletonComponent : MonoBehaviour
     Vector3 newObjectPosition;
     public HealthBar playerHealthBar;
     public TextMeshProUGUI stolenItemText;
+
 
 
     // Start is called before the first frame update
@@ -35,25 +37,34 @@ public class SkeletonComponent : MonoBehaviour
             Vector3 newObjectPosition = new Vector3(other.transform.position.x + Random.Range(-10f, 10f), 1.5f, other.transform.position.z + Random.Range(-10f, 10f));
 
             StealAndRepositionItem(newObjectPosition);
+
+        }
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //delta time to do it every 3 seconds
+            playerHealthBar.takeDamage(25 * Time.deltaTime);
         }
     }
 
-    /*void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("colliding");
-        if (collision.gameObject.CompareTag("Player"))
+        /*void OnCollisionEnter(Collision collision)
         {
-            //decrease player health by 25 on collsion with skeletons 
-            playerHealthBar.takeDamage(25);
+            Debug.Log("colliding");
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                //decrease player health by 25 on collsion with skeletons 
+                playerHealthBar.takeDamage(25);
 
-            //position of where the item will be relocated
-            Vector3 newObjectPosition = new Vector3(collision.transform.position.x + Random.Range(-10f, 10f), 1.5f, collision.transform.position.z + Random.Range(-10f, 10f));
+                //position of where the item will be relocated
+                Vector3 newObjectPosition = new Vector3(collision.transform.position.x + Random.Range(-10f, 10f), 1.5f, collision.transform.position.z + Random.Range(-10f, 10f));
 
-            StealAndRepositionItem(newObjectPosition);
-        }
-    }*/
+                StealAndRepositionItem(newObjectPosition);
+            }
+        }*/
 
-    public void StealAndRepositionItem(Vector3 newPosition)
+        public void StealAndRepositionItem(Vector3 newPosition)
     {
         if (InventoryManager.Instance.Items.Count > 0)
         {

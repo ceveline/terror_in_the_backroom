@@ -12,9 +12,13 @@ public class GameManager : MonoBehaviour
 
     string sceneName = "";
     int itemsToCollect = 0;
+    // Singleton pattern
+    public static int currentLevel = 0;
+
+
     void Awake()
     {
-        // Singleton pattern
+        // singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -85,5 +89,16 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    public void LoadNextScene()
+    {
+        //modify it to load next scene when all items have been dropped off
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+  
+    }
+
+    public void RestartScene() { 
+
+        //SceneManager.LoadScene(currentLevel);
+        // add to player controller script, when the player dies, set GameManager.currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 }
