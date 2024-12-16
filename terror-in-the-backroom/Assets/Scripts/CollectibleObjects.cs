@@ -8,13 +8,18 @@ public class CollectibleObjects : MonoBehaviour
     public Item item;
     bool isCollidingWithObject = false;
     TextMeshProUGUI healthText;
+    TextMeshProUGUI itemText;
     public AudioSource collectAudio;
 
     void Start()
     {
+        //get health text
         GameObject healthTextObject = GameObject.Find("PowerUpText");
         healthText = healthTextObject.GetComponent<TextMeshProUGUI>();
         //collectAudio = collectAudioObject.GetComponent<AudioSource>();
+
+        GameObject itemTextObject = GameObject.Find("StolenItemText");
+        itemText = itemTextObject.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -73,6 +78,11 @@ public class CollectibleObjects : MonoBehaviour
 
         //set isColliding bool back to false
         isCollidingWithObject = false;
+
+        if(GameManager.Instance.itemsCollected >= GameManager.Instance.itemsToCollect)
+        {
+            itemText.text = "Proceed to the entrance to drop off your items.";
+        }
     }
 
     public void resetText()

@@ -35995,6 +35995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsCollected: 0
   itemsDroppedOff: 0
+  itemsToCollect: 0
 --- !u!1 &1483498791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: ec505f73967a98c48a090df01f10c44b, type: 3}
@@ -42232,9 +42233,13 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 223656042648282353, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1046696369527730121, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -141
+      value: -216
       objectReference: {fileID: 0}
     - target: {fileID: 1046696369527730121, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
       propertyPath: m_AnchoredPosition.y
