@@ -51,6 +51,9 @@ public class SlenderAIController : MonoBehaviour
     void AttackPlayer(){
         Debug.Log("Monster Attacked Player");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        //reset the amount of items collected
+       GameManager.Instance.ResetItems();
     }
 
     bool IsPlayerFacingSlender()
