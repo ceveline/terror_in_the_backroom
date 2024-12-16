@@ -4,15 +4,17 @@ using UnityEngine;
 using TMPro;
 public class CollectibleObjects : MonoBehaviour
 {
+  // public GameObject collectAudioObject;
     public Item item;
     bool isCollidingWithObject = false;
     TextMeshProUGUI healthText;
-
+    public AudioSource collectAudio;
 
     void Start()
     {
         GameObject healthTextObject = GameObject.Find("PowerUpText");
         healthText = healthTextObject.GetComponent<TextMeshProUGUI>();
+        //collectAudio = collectAudioObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -44,6 +46,7 @@ public class CollectibleObjects : MonoBehaviour
     {
         //Add to Inventory
         InventoryManager.Instance.Add(item);
+       // collectAudio.Play();
 
         //if the item is a first aid kit, increase player heath
             if (item.itemName == "First Aid")
