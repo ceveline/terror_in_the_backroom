@@ -66,8 +66,9 @@ public class CollectibleObjects : MonoBehaviour
             Invoke("resetText", 5f);
 
         }
-
-        gameObject.SetActive(false);
+        //destroy game object because setting it as false would allow it to be collected multiple times
+        Destroy(this);
+ 
         //set isColliding bool back to false
         isCollidingWithObject = false;
     }
