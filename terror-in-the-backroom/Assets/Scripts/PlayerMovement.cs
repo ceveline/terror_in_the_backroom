@@ -47,11 +47,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandlePlayerMovement();
-       
-        //we only allow the mouse to rotate the camera is the inventory s not active
-        if(!inventoryStatus)
+
+        //we only allow the mouse to rotate the camera is the inventory is not active
+        //if inventory is closed, lock cursor so that camera movement can be controlled by mouse
+        if (!inventoryStatus)
         {
-         LookAround();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            LookAround();
         }
 
         //Check if player is trying to attack a skeleton
@@ -61,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         OpenCloseInventory();
 
         //Drop Off Items if player is pressing V
-        DropOffItems();
+        DropOffItems();  
 
 
     }
@@ -239,6 +242,13 @@ public class PlayerMovement : MonoBehaviour
             //allows the player to open and close the inventory by pressing the I key
             inventory.SetActive(!inventoryStatus);
             inventoryStatus = !inventoryStatus;
+
+            //if the inventory is open, we reset the cursor state to be able to click the items
+            if(inventoryStatus)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
 
             //update inventory with items that have been collected
             InventoryManager.Instance.ListItems();
