@@ -10,6 +10,7 @@ TagManager:
   - Inventory
   - Skeleton
   - Dropoff
+  - playerHealth
   layers:
   - Default
   - TransparentFX

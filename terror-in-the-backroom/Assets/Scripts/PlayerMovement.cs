@@ -275,23 +275,13 @@ public class PlayerMovement : MonoBehaviour
                 //update items list
                 InventoryManager.Instance.ListItems();
 
-                //get the transforms of the items so that we can instantiate the game objects
-                //List<Transform> itemTransforms = InventoryManager.Instance.getItemTransforms();
-               // Debug.Log("tranforms : "  + itemTransforms.Count);
-
-               
-
-                //Instantiate GameObjects
-                /*foreach(Transform itemTransform in itemTransforms)
-                {*/
-                    //Debug.Log("tranform loop entered");
+                //instantiate the game objects
                     Vector3 itemLocation = transform.position + transform.forward * spaceOutDistance;
                     itemLocation. y = 0.5f;
 
                     Instantiate(item.prefab, itemLocation, Quaternion.identity);
                     spaceOutDistance += 2;
                     Debug.Log("item instantiated");
-                //}
                 
                 //remove these items from the inventory
                 InventoryManager.Instance.Remove(item);
