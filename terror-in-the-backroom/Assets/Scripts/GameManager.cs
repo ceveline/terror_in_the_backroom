@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int itemsDroppedOff = 0;
 
     string sceneName = "";
-    int itemsToCollect = 0;
+    public int itemsToCollect = 0;
     // Singleton pattern
     public static int currentLevel = 0;
 
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         checkLevelPassingCondition();
     }
+
     public void UpdateItemsCollected()
     {
         itemsCollected += 1;
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
     }
     void checkLevelPassingCondition()
     {
-        if (itemsCollected == itemsToCollect && itemsCollected != 0 && itemsDroppedOff == itemsToCollect)
+        if (itemsCollected >= itemsToCollect && itemsCollected != 0 && itemsDroppedOff >= itemsToCollect)
         {
             //reset items collected
             ResetItems();

@@ -279,14 +279,22 @@ public class PlayerMovement : MonoBehaviour
                     Vector3 itemLocation = transform.position + transform.forward * spaceOutDistance;
                     itemLocation. y = 0.5f;
 
-                    Instantiate(item.prefab, itemLocation, Quaternion.identity);
+                //change the object's tag so that it cannot be collected again after the object has been dropped off
+                item.prefab.tag = "DroppedOff";
+
+                Instantiate(item.prefab, itemLocation, Quaternion.identity);
                     spaceOutDistance += 2;
                     Debug.Log("item instantiated");
                 
                 //remove these items from the inventory
-                InventoryManager.Instance.Remove(item);
+                InventoryManager.Instance.DropOff(item);
 
+          
             }
+
+            Debug.Log("Items Collected " +GameManager.Instance.itemsCollected.ToString());
+            Debug.Log("Items To Collect " + GameManager.Instance.itemsToCollect.ToString());
+            Debug.Log("Items Dropped Off " + GameManager.Instance.itemsDroppedOff.ToString());
         }
     }
 

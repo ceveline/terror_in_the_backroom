@@ -56,6 +56,12 @@ public class InventoryManager : MonoBehaviour
         itemsCollectedText.text = "Items: " + GameManager.Instance.itemsCollected.ToString() + " / " + itemsToCollect.ToString();
     }
 
+    public void DropOff(Item item)
+    {
+        // Remove item from inventory but not from the items that have been collected
+        Items.Remove(item);
+    }
+
     public void ListItems()
     {
         //prevent items from being duplicated each time the inventory is opened

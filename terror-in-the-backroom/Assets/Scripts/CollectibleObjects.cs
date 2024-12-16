@@ -26,7 +26,7 @@ public class CollectibleObjects : MonoBehaviour
      public void OnTriggerEnter(Collider other)
         {
 
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player") && this.CompareTag("Collectible"))
             {
                 isCollidingWithObject = true;
             }
@@ -66,10 +66,14 @@ public class CollectibleObjects : MonoBehaviour
             Invoke("resetText", 5f);
 
         }
+
         //destroy game object because setting it as false would allow it to be collected multiple times
         //Destroy(this);
         gameObject.SetActive(false);
- 
+
+        //change the object's tag so that it cannot be collected again after the object has been dropped off
+        gameObject.tag = "DroppedOff";
+
         //set isColliding bool back to false
         isCollidingWithObject = false;
     }
