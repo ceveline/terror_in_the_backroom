@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 5b5da35a4424c784f90dce3ebe7eee0f, type: 2}
+  collectAudio: {fileID: 0}
 --- !u!1001 &8224181427129256875
 PrefabInstance:
   m_ObjectHideFlags: 0
