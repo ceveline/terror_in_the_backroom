@@ -6,6 +6,14 @@ public class CollectibleObjects : MonoBehaviour
 {
     public Item item;
     bool isCollidingWithObject = false;
+    TextMeshProUGUI healthText;
+
+
+    void Start()
+    {
+        GameObject healthTextObject = GameObject.Find("PowerUpText");
+        healthText = healthTextObject.GetComponent<TextMeshProUGUI>();
+    }
 
     void Update()
     {
@@ -49,9 +57,10 @@ public class CollectibleObjects : MonoBehaviour
                 healthbar.health += 25;
 
             //Alert user that health has been increased
-            GameObject healthTextObject = GameObject.Find("PowerUpText");
-            TextMeshProUGUI healthText = healthTextObject.GetComponent<TextMeshProUGUI>();
             healthText.text = "+25 HP";
+
+            //reset text after 5 seconds
+            Invoke("resetText", 5f);
 
         }
 
@@ -60,6 +69,11 @@ public class CollectibleObjects : MonoBehaviour
         isCollidingWithObject = false;
     }
 
-   
+    public void resetText()
+    {
+        healthText.text = "";
+    }
+
+
 
 }
