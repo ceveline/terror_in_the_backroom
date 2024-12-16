@@ -25,11 +25,6 @@ public class HealthBar : MonoBehaviour
             healthSlider.value = health;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) //replace to when we have attack
-        {
-            takeDamage(10);
-        }
-
     }
 
     public void takeDamage(float damage)
