@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         return SceneManager.GetActiveScene().name;
     }
+
     public int setLevelItems()
     {
         switch (sceneName)
