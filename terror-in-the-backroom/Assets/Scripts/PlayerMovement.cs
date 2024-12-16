@@ -257,7 +257,8 @@ public class PlayerMovement : MonoBehaviour
 
     void DropOffItems()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        //You can only drop off your items once you have collected all of them 
+        if (Input.GetKeyDown(KeyCode.V) && GameManager.Instance.itemsCollected >= GameManager.Instance.itemsToCollect)
         {
             Debug.Log("V being pressed");
 
@@ -278,9 +279,6 @@ public class PlayerMovement : MonoBehaviour
                 //instantiate the game objects
                     Vector3 itemLocation = transform.position + transform.forward * spaceOutDistance;
                     itemLocation. y = 0.5f;
-
-                //change the object's tag so that it cannot be collected again after the object has been dropped off
-                item.prefab.tag = "DroppedOff";
 
                 Instantiate(item.prefab, itemLocation, Quaternion.identity);
                     spaceOutDistance += 2;
