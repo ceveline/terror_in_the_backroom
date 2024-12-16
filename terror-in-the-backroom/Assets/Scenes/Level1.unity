@@ -7987,7 +7987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 384.3, y: 243.1}
+  m_AnchoredPosition: {x: 448, y: 256.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323697070
@@ -8798,6 +8798,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0732ffa1575c85646a1a83f22a1be30e, type: 3}
       propertyPath: m_Name
       value: Slender
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0732ffa1575c85646a1a83f22a1be30e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30839,7 +30843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899769094566875523, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42044,6 +42048,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontStyle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046696369527730121, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -141
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046696369527730121, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 238
+      objectReference: {fileID: 0}
     - target: {fileID: 1785653001635426003, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
       propertyPath: m_Name
       value: HealthBar Canvas
