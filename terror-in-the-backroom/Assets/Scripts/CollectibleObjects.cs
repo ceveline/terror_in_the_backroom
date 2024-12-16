@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CollectibleObjects : MonoBehaviour
 {
     public Item item;
@@ -40,8 +40,6 @@ public class CollectibleObjects : MonoBehaviour
         //if the item is a first aid kit, increase player heath
             if (item.itemName == "First Aid")
             {
-            Debug.Log("first aid collected");
-
                 //Get player's healthbar
                 GameObject healthbarObject = GameObject.FindGameObjectWithTag("playerHealth");
 
@@ -49,7 +47,13 @@ public class CollectibleObjects : MonoBehaviour
 
                 // Power up to increase player health by 25 points
                 healthbar.health += 25;
-            }
+
+            //Alert user that health has been increased
+            GameObject healthTextObject = GameObject.Find("PowerUpText");
+            TextMeshProUGUI healthText = healthTextObject.GetComponent<TextMeshProUGUI>();
+            healthText.text = "+25 HP";
+
+        }
 
         gameObject.SetActive(false);
         //set isColliding bool back to false
