@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         sceneName = GameManager.Instance.getLevel();
-        itemsToCollect = GameManager.Instance.setLevelItems();
+        itemsToCollect = GameManager.Instance.setLevelItems(sceneName);
     }
 
     private void Awake()

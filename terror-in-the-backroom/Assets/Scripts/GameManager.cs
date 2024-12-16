@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int itemsCollected = 0;
     public int itemsDroppedOff = 0;
 
-    string sceneName = "";
+    string sceneName;
     public int itemsToCollect = 0;
     // Singleton pattern
     public static int currentLevel = 0;
@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         sceneName = getLevel();
-        itemsToCollect = setLevelItems();
     }
     void Update()
     {
@@ -73,12 +72,14 @@ public class GameManager : MonoBehaviour
 
    public string getLevel()
     {
-        return SceneManager.GetActiveScene().name;
+        string level = SceneManager.GetActiveScene().name;
+        itemsToCollect = setLevelItems(level);
+        return level;
     }
 
-    public int setLevelItems()
+    public int setLevelItems(string scene)
     {
-        switch (sceneName)
+        switch (scene)
         {
             case "Level1":
                 return 15;
