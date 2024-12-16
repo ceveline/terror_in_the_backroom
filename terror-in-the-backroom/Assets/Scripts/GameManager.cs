@@ -65,6 +65,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ResetItemsDropped()
+    {
+        itemsDroppedOff = 0;
+    }
+
    public string getLevel()
     {
         return SceneManager.GetActiveScene().name;
@@ -85,8 +90,14 @@ public class GameManager : MonoBehaviour
     }
     void checkLevelPassingCondition()
     {
-        if (itemsCollected == itemsToCollect && itemsCollected != 0)
+        if (itemsCollected == itemsToCollect && itemsCollected != 0 && itemsDroppedOff == itemsToCollect)
         {
+            //reset items collected
+            ResetItems();
+
+            //reset items dropped
+            ResetItemsDropped();
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
