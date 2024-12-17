@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             case "Level2":
                 return 20;
             case "Level3":
-                return 15;
+                return 25;
             default:
                 return 15;
         }
