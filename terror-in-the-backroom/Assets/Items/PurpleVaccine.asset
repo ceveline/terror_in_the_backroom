@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   itemName: Purple Vaccine
+  prefab: {fileID: 302269891478966354, guid: baaa6bbb1cf97df4d818d7a0e8048aa4, type: 3}
   icon: {fileID: 21300000, guid: c43343a6345f714459869ffa4a9aa6db, type: 3}
