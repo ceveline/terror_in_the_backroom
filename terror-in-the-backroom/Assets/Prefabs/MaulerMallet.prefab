@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 6b1789870b4b07b49b74d024afbda011, type: 2}
-  collectAudio: {fileID: 0}
+  collectAudio: {fileID: 5384357368931408082, guid: fc728e2063d08c84b8919e7bdc9025f0, type: 3}
 --- !u!114 &1068835908971948513
 MonoBehaviour:
   m_ObjectHideFlags: 0
