@@ -26,6 +26,14 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+    public void LevelTwo()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+    public void LevelThree()
+    {
+        SceneManager.LoadScene("Level3");
+    }
 
     public void ExitGame()
     {
