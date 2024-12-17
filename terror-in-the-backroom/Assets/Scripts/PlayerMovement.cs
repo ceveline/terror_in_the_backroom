@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private float verticalVelocity;
     private float verticalRotation = 0f;
 
+    public AudioSource attackSkeletonAudio;
+
 
     bool isCollidingWithSkeleton = false;
     Collider colliderOfObjectToCollect;
@@ -226,6 +228,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // Swing mallet down
         newMallet.transform.Rotate(0, -90, 0);
+
+        //play attack sound effect
+        attackSkeletonAudio.Play();
 
         // Wait for 1/2 a second
         yield return new WaitForSeconds(0.5f);
