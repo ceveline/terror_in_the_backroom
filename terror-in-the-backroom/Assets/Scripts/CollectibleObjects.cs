@@ -51,7 +51,7 @@ public class CollectibleObjects : MonoBehaviour
     {
         //Add to Inventory
         InventoryManager.Instance.Add(item);
-       // collectAudio.Play();
+       collectAudio.Play();
 
         //if the item is a first aid kit, increase player heath
             if (item.itemName == "First Aid")
