@@ -32748,6 +32748,10 @@ PrefabInstance:
       propertyPath: monsterText
       value: 
       objectReference: {fileID: 1691440110}
+    - target: {fileID: 6741624817160778617, guid: 9f0cfb365e3852f4fa79e163b0cd2129, type: 3}
+      propertyPath: welcomeBanner
+      value: 
+      objectReference: {fileID: 1969557016}
     - target: {fileID: 7568575842230721849, guid: 9f0cfb365e3852f4fa79e163b0cd2129, type: 3}
       propertyPath: m_LocalPosition.x
       value: 428.69208
@@ -48373,6 +48377,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 444442, guid: b01fa194940f0624ca7e3df13bed1969, type: 3}
   m_PrefabInstance: {fileID: 636096069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1969557016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8037712416716470470, guid: 2e03ccc304f9c5e44ad489a278b11300, type: 3}
+  m_PrefabInstance: {fileID: 1691440108}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1970793948 stripped
 Transform:
