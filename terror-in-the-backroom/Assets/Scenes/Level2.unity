@@ -42586,6 +42586,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
+      propertyPath: m_margin.z
+      value: -770.4954
+      objectReference: {fileID: 0}
+    - target: {fileID: 40697399840537517, guid: 708b0fece9d3b9b4f9cc30304e825600, type: 3}
       propertyPath: m_fontStyle
       value: 2
       objectReference: {fileID: 0}

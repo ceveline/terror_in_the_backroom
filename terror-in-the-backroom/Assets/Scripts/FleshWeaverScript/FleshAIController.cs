@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class FleshAIController : MonoBehaviour
 {
@@ -20,11 +21,17 @@ public class FleshAIController : MonoBehaviour
     private int currentWaypoint = 0;
     private bool isChasing = false;
 
+    TextMeshProUGUI alertText;
+
     // Start is called before the first frame update
     void Start()
     {
         flesh = GetComponent<NavMeshAgent>();
         GenerateWaypoints();
+
+        //get text to alert player that they've been repositioned
+        GameObject alertTextObject = GameObject.Find("StolenItemText");
+        alertText = alertTextObject.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -79,9 +86,10 @@ public class FleshAIController : MonoBehaviour
                playerObj.SetActive(false);
                 player.position=teleportLocation.position;
                 playerObj.SetActive(true);
+
+                AlertPlayerOfKidnapping();
             }
         }
-
        
 
 
@@ -111,6 +119,21 @@ public class FleshAIController : MonoBehaviour
                 waypoints[i] = new Vector3(randomX, floorPosition.y, randomZ);
             }
         }
+
+
+     void AlertPlayerOfKidnapping()
+    {
+        alertText.text = "Oh no! You've been kidnapped by the Fleshweaver";
+
+        //reset the text after 5 seconds
+        Invoke("resetText", 5f);
+
     }
+
+     void resetText()
+    {
+        alertText.text = "";
+    }
+}
 
 
