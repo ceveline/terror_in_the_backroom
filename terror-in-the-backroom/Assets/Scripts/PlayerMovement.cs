@@ -33,13 +33,21 @@ public class PlayerMovement : MonoBehaviour
     bool isCarrying = false;
     bool atDropoffLocation = false;
 
+    // Audio
+    public AudioClip walkingSound;
+    public AudioClip runningSound;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<CharacterController>();
         playerCamera = Camera.main;
 
-        //lock cursor to center of screen
+        // Add AudioSource component dynamically if not added in the Inspector
+        audioSource = gameObject.AddComponent<AudioSource>();
+
+        // Lock cursor to center of screen
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -54,19 +62,20 @@ public class PlayerMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        // We only allow the mouse to rotate the camera if the inventory is not active
+        if (!inventoryStatus)
+        {
             LookAround();
         }
 
-        //Check if player is trying to attack a skeleton
+        // Check if player is trying to attack a skeleton
         CheckForMallet();
 
-        //Open the inventory if the player is pressing I
+        // Open the inventory if the player is pressing I
         OpenCloseInventory();
 
-        //Drop Off Items if player is pressing V
-        DropOffItems();  
-
-
+        // Drop off items if player is pressing V
+        DropOffItems();
     }
 
     void HandlePlayerMovement()
@@ -79,12 +88,29 @@ public class PlayerMovement : MonoBehaviour
             isRunning = Input.GetButton("Run");
 
             direction = new Vector3(horizontal, 0, vertical);
-           
             direction = transform.TransformDirection(direction) * ((isRunning) ? runSpeed : speed);
 
             if (Input.GetButton("Jump"))
             {
                 verticalVelocity = jumpForce;
+            }
+
+            // Play audio based on movement
+            if (direction.magnitude > 0)
+            {
+                if (isRunning)
+                {
+                    PlaySound(runningSound);
+                }
+                else
+                {
+                    PlaySound(walkingSound);
+                }
+            }
+            else
+            {
+                // Stop audio if there's no movement
+                StopSound();
             }
         }
 
@@ -93,6 +119,25 @@ public class PlayerMovement : MonoBehaviour
 
         playerController.Move(direction * Time.deltaTime);
     }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource.clip != clip || !audioSource.isPlaying)
+        {
+            audioSource.clip = clip;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+    }
+
+    void StopSound()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
 
 
     void LookAround()
