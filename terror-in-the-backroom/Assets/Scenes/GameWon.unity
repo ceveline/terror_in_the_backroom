@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CONGRATULATIONS \nYOU ESCAPED THE ASYLUM "
+  m_text: "CONGRATULATIONS \nYOU ESCAPED THE HOSPITAL "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ed170c410dabc04a92a8b8931939504, type: 2}
   m_sharedMaterial: {fileID: 255823633238984341, guid: 0ed170c410dabc04a92a8b8931939504, type: 2}
