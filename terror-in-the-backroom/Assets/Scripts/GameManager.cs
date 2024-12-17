@@ -101,15 +101,21 @@ public class GameManager : MonoBehaviour
             //reset items dropped
             ResetItemsDropped();
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadNextScene();
         }
     }
 
     public void LoadNextScene()
     {
         //modify it to load next scene when all items have been dropped off
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-  
+        if (SceneManager.GetActiveScene().name == "Level3")
+        {
+            SceneManager.LoadScene("GameWon");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void RestartScene() { 
