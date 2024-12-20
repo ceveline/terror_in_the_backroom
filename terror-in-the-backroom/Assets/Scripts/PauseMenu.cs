@@ -53,18 +53,19 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        // Ensure the pause menu is deactivated
-        pauseMenu.SetActive(false);
-
-        // Reset the cursor lock state and visibility
+        // Reset the cursor lock state and visibility immediately
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        // Ensure the pause menu is deactivated
+        pauseMenu.SetActive(false);
 
         // Reset time scale in case it is still paused
         Time.timeScale = 1f;
 
-        // Load the main menu scene (replace "MainMenu" with your scene name)
+        // Load the main menu scene (replace "MainMenu" with your actual scene name)
         SceneManager.LoadScene("MainMenu");
     }
+
 }
 
