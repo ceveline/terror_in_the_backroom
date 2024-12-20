@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        void OnTriggerEnter(Collider other)
+         void OnTriggerEnter(Collider other)
         {
 
             if (other.gameObject.CompareTag("Skeleton"))
@@ -174,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        void OnTriggerExit(Collider other)
+         void OnTriggerExit(Collider other)
         {
             if (other.gameObject.CompareTag("Skeleton"))
             {
@@ -266,12 +266,12 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        IEnumerator SwingAndReset()
+         IEnumerator SwingAndReset()
         {
             // Swing mallet down
             newMallet.transform.Rotate(0, -90, 0);
 
-            //play attack sound effect
+             //play attack sound effect
             attackSkeletonAudio.Play();
 
             // Wait for 1/2 a second
@@ -285,31 +285,22 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                // Toggle the inventory's active state
+                //set the inventory status to the opposite of what it currently is
+                //allows the player to open and close the inventory by pressing the I key
+                inventory.SetActive(!inventoryStatus);
                 inventoryStatus = !inventoryStatus;
-                inventory.SetActive(inventoryStatus);
 
+                //if the inventory is open, we reset the cursor state to be able to click the items
                 if (inventoryStatus)
                 {
-                    // If the inventory is open, unlock the cursor
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                }
 
-                    // Update inventory if it's open
-                    InventoryManager.Instance.ListItems();
-                }
-                else
-                {
-                    // If the inventory is closed, lock the cursor for gameplay
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-                }
+                //update inventory with items that have been collected
+                InventoryManager.Instance.ListItems();
             }
-
-
         }
-
-
 
         void DropOffItems()
         {
@@ -354,6 +345,5 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-}
 
 
