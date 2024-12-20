@@ -64,18 +64,21 @@ public class PlayerMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            LookAround();
+            // We only allow the mouse to rotate the camera if the inventory is not active
+            if (!inventoryStatus)
+            {
+                LookAround();
+            }
+
+            // Check if player is trying to attack a skeleton
+            CheckForMallet();
+
+            // Open the inventory if the player is pressing I
+            OpenCloseInventory();
+
+            // Drop off items if player is pressing V
+            DropOffItems();
         }
-
-        //Check if player is trying to attack a skeleton
-        CheckForMallet();
-
-        //Open the inventory if the player is pressing I
-        OpenCloseInventory();
-
-        //Drop Off Items if player is pressing V
-        DropOffItems();
-    }
 
         void HandlePlayerMovement()
         {
