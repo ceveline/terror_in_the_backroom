@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 7618926503497583199, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6039b553a6f729e469fa94fca01759ce, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2315,7 +2319,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 8a67ce15887f3a14e8ac6ff15851f274, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 79f0f770cf9869740b022d6663bc1c07, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &67611450
 PrefabInstance:
@@ -31005,7 +31009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899769094566875523, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31085,10 +31089,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 356467623}
   playerObj: {fileID: 1821977745}
-  floor: {fileID: 67607301}
   teleportLocation: {fileID: 1072975590}
   viewDistance: 15
-  numberOfWaypoints: 5
+  lostSightTime: 3
+  patrolPoints: []
+  growlSound: {fileID: 0}
+  biteSound: {fileID: 0}
 --- !u!1001 &1254616693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43656,6 +43662,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7618926503497583199, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6039b553a6f729e469fa94fca01759ce, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

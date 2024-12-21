@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 8a67ce15887f3a14e8ac6ff15851f274, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0ecab9e807768584c9854e0a2e0aeae1, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &67611450
 PrefabInstance:
@@ -17988,7 +17988,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 300
@@ -31058,12 +31058,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 356467623}
   playerObj: {fileID: 1821977745}
-  floor: {fileID: 67607301}
   teleportLocation: {fileID: 1072975590}
   viewDistance: 15
-  attackRange: 2
-  stopChaseDistance: 8
-  numberOfWaypoints: 5
+  lostSightTime: 3
+  patrolPoints: []
+  growlSound: {fileID: 0}
+  biteSound: {fileID: 0}
 --- !u!1001 &1254616693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38753,7 +38753,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -43481,7 +43481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2510275104255992132, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3392321390794453025, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
       propertyPath: stolenItemText
@@ -43494,6 +43494,10 @@ PrefabInstance:
     - target: {fileID: 3751534987644881567, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
       propertyPath: m_Name
       value: Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751534987644881567, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4565508305085370405, guid: 6294a4605bad39548958c3fdbc3747ea, type: 3}
       propertyPath: m_LocalScale.x
