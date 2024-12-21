@@ -11,12 +11,10 @@ public class FleshAIController : MonoBehaviour
     public GameObject playerObj;
     public Transform teleportLocation;
     public float viewDistance = 15f; 
-    public float lostSightTime = 3f;
-    private float lastSeenTime = -1f;
+
     private NavMeshAgent flesh;
     public Transform[] patrolPoints;
     private bool isChasing = false;
-    private Animator fleshAnimator; 
 
     TextMeshProUGUI alertText;
 
@@ -24,7 +22,6 @@ public class FleshAIController : MonoBehaviour
     void Start()
     {
         flesh = GetComponent<NavMeshAgent>();
-        fleshAnimator = GetComponent<Animator>(); 
         //get text to alert player that they've been repositioned
         GameObject alertTextObject = GameObject.Find("StolenItemText");
         alertText = alertTextObject.GetComponent<TextMeshProUGUI>();
@@ -48,38 +45,13 @@ public class FleshAIController : MonoBehaviour
         if (!isChasing && IsPlayerInSight())
         {
             StartChase();
-        } 
-            else if(isChasing && !IsPlayerInSight()){
-                //only stop chasing after delay
-                if(Time.time-lastSeenTime>lostSightTime){
-                StopChase();
-            }
         }
-        //punch animation when close enough
-        if (isChasing && Vector3.Distance(transform.position, player.position) < 3f) 
-        {
-            fleshAnimator.SetTrigger("Punch");
-        }
-
-        //walking animation 
-         if (flesh.velocity.magnitude > 0.1f)  
-        {
-            fleshAnimator.SetBool("isWalking", true);
-        }
-            else
-            {
-                fleshAnimator.SetBool("isWalking", false);
-            }
-
-        
     }
-
 
     void RandomPatrol()
     {
-        //getting random patrol point
+     
         Transform randomPoint = patrolPoints[Random.Range(0, patrolPoints.Length)];
-        //setting flesh destination
         flesh.SetDestination(randomPoint.position);
         Debug.Log("Patrolling... " + randomPoint.position);
     }
@@ -88,26 +60,23 @@ public class FleshAIController : MonoBehaviour
     void StartChase()
     {
         isChasing = true;
-        lastSeenTime = Time.time;
-        Debug.Log("Starting chase...");
-    }
-
-    void StopChase(){
-        isChasing = false;
-        Debug.Log("Stopped chasing...");
-        RandomPatrol();
     }
 
     void HandleChase()
     {
         //chase player
         flesh.SetDestination(player.position);
-        Debug.Log("Chasing..");
+        Debug.Log("Chasing");
+        if (!IsPlayerInSight())
+        {
+            isChasing = false;
+            RandomPatrol();
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("colliding with player");
+        Debug.Log("colliding");
         if (other.gameObject.CompareTag("Player"))
         {
             playerObj.SetActive(false);
