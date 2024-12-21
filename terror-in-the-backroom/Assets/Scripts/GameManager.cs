@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         sceneName = getLevel();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     void Update()
     {
