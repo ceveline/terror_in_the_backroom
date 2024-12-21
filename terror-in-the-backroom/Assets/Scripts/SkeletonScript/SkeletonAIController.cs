@@ -10,11 +10,13 @@ public class SkeletonAIController : MonoBehaviour
     private NavMeshAgent skeleton;
     private int lastPatrolIndex = -1;
     private bool isWaiting = false;
+     public Animator skeletonAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         skeleton = GetComponent<NavMeshAgent>();
+        skeletonAnimator = GetComponent<Animator>();
         MoveToNextPatrolPoint();
     }
 
@@ -23,8 +25,19 @@ public class SkeletonAIController : MonoBehaviour
     {
           if (!isWaiting && !skeleton.pathPending && skeleton.remainingDistance < 0.5f)
         {
+            skeletonAnimator.SetBool("isWalking", false);
             StartCoroutine(DelayedMoveToNextPatrolPoint());
         }
+
+         if (skeleton.velocity.magnitude > 0.1f)
+        {
+            skeletonAnimator.SetBool("isWalking", true); 
+        }
+        else
+        {
+            skeletonAnimator.SetBool("isWalking", false); 
+        }
+
     }
 
     private IEnumerator DelayedMoveToNextPatrolPoint()

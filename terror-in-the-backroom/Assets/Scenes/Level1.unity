@@ -30961,7 +30961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899769094566875521, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.84
+      value: -7.15
       objectReference: {fileID: 0}
     - target: {fileID: 6899769094566875521, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30969,7 +30969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899769094566875521, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.96
+      value: 5.98
       objectReference: {fileID: 0}
     - target: {fileID: 6899769094566875521, guid: f3978c44f7fb36246b698fdea7f77528, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31088,8 +31088,6 @@ MonoBehaviour:
   floor: {fileID: 67607301}
   teleportLocation: {fileID: 1072975590}
   viewDistance: 15
-  attackRange: 2
-  stopChaseDistance: 8
   numberOfWaypoints: 5
 --- !u!1001 &1254616693
 PrefabInstance:
