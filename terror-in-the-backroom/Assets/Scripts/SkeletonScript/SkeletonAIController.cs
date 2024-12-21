@@ -10,7 +10,7 @@ public class SkeletonAIController : MonoBehaviour
     private NavMeshAgent skeleton;
     private int lastPatrolIndex = -1;
     private bool isWaiting = false;
-     public Animator skeletonAnimator;
+    private Animator skeletonAnimator;
 
     // Start is called before the first frame update
     void Start()
